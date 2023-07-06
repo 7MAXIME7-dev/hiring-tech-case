@@ -20,9 +20,9 @@ from plots.views import LoginView, LogoutView, MyPlotsView, ManagePlotView
 
 
 urlpatterns = [
-    path('account/admin/', admin.site.urls),
-    path('account/login/', LoginView.as_view(),  name='login-user'),
-    path('account/logout/', LogoutView.as_view(), name='logout-user'),
+    path('accounts/admin/', admin.site.urls),
+    path('accounts/login/', LoginView.as_view(),  name='login-user'),
+    path('accounts/logout/', LogoutView.as_view(), name='logout-user'),
     path("plots/", MyPlotsView.as_view(), name='list-add-plots'),
     path('plots/<int:pk>/', ManagePlotView.as_view(), name='get-update-delete-plot'),
 ]
