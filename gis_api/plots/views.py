@@ -120,7 +120,7 @@ class ManagePlotView(APIView):
         serializer = PlotSerializer(plot, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response({'message': 'malformed data'}, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -138,4 +138,4 @@ class ManagePlotView(APIView):
             return Response({'message': 'Plot not found'}, status=status.HTTP_404_NOT_FOUND)
 
         plot.delete()
-        return Response({'message': 'Plot deleted'}, status=status.HTTP_204_NO_CONTENT)
+        return Response({'message': 'Plot deleted'}, status=status.HTTP_200_OK)
